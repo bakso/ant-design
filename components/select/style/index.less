@@ -16,7 +16,6 @@
   right: 8px;
   z-index: 1;
   background: @component-background;
-  top: 50%;
   font-size: @font-size-base;
   color: @disabled-color;
   width: 12px;
@@ -90,6 +89,7 @@
 
     &__clear {
       .selection__clear();
+      top: @input-height-base / 2;
     }
 
     &:hover &__clear {
@@ -104,6 +104,10 @@
       max-width: 100%;
       padding-right: 14px;
     }
+  }
+
+  &-allow-clear &-selection:hover &-selection__rendered {
+    margin-right: 20px; // In case that clear button will overlap content
   }
 
   &-disabled {
@@ -174,6 +178,9 @@
         }
       }
     }
+    .@{select-prefix-cls}-selection__clear {
+      top: @input-height-lg / 2;
+    }
   }
 
   &-sm {
@@ -191,6 +198,9 @@
           line-height: @input-height-sm - 8px;
         }
       }
+    }
+    .@{select-prefix-cls}-selection__clear {
+      top: @input-height-sm / 2;
     }
   }
 
